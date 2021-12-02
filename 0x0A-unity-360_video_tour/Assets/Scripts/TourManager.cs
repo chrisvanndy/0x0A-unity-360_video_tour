@@ -9,6 +9,9 @@ public class TourManager : MonoBehaviour
 
     public VideoPlayer videoPlayer;
 
+    public GameObject Fader;
+    public GameObject FadeCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,12 @@ public class TourManager : MonoBehaviour
     {
         videoPlayer.clip = videoclip;
 
+    }
+
+    public void TourExit()
+    {
+        Debug.Log("Tour Exit");
+        Application.Quit();
     }
 
     IEnumerator PlayVideoClip(string videoname)
@@ -39,3 +48,5 @@ public class TourManager : MonoBehaviour
  
     }
 }
+
+
