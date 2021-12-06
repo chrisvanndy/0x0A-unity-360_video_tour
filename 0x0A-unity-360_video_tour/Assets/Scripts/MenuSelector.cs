@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 public class MenuSelector : MonoBehaviour
 {
     public GameObject Cube;
@@ -11,48 +12,108 @@ public class MenuSelector : MonoBehaviour
     public GameObject Cantina;
     public GameObject Mezz;
 
+    public Animator fader;
+
     void Start()
     {
-    
+
     }
 
+    void Update() 
+    {
+
+    }
+    
     // on click event will deactivate all but Living UI Canvas
+
    public void LivingRoomMenu()
    {
-       Cube.SetActive(false);
-       Cantina.SetActive(false);
-       Mezz.SetActive(false);
-       Living.SetActive(true);
+     
+       StartCoroutine(LivingWait());
+       Debug.Log("back in calling function");
+       
    }
 
 
     // on click event will deactivate all but Cube UI Canvas
    public void CubeMenu()
    {
-       Living.SetActive(false);
-       Cantina.SetActive(false);
-       Mezz.SetActive(false);
-       Cube.SetActive(true);
-
+       
+       StartCoroutine(CubeWait());
+       Debug.Log("back in calling function");
+       
+       
    }
 
     // on click event will deactivate all but Mezz UI Canvas
    public void MezzMenu()
    {
-       Cube.SetActive(false);
-       Living.SetActive(false);
-       Cantina.SetActive(false);
-       Mezz.SetActive(true);
-
+       
+       StartCoroutine(MezzWait());
+       Debug.Log("back in calling function");
+    
+       
    }
 
     // on click event will deactivate all but Mezz UI Canvas
    public void CantinaMenu()
    {
-       Cube.SetActive(false);
-       Living.SetActive(false);
-       Mezz.SetActive(false);
-       Cantina.SetActive(true);
+       
+       StartCoroutine(CantWait());
+       Debug.Log("back in calling function");
+      
+       
    }
 
+   IEnumerator CubeWait()
+   {
+       fader.SetBool("FadeOut", true);
+       Debug.Log("BLACKOUT");
+       yield return new WaitForSeconds(2);
+       Debug.Log("waited two seconds");
+       Living.SetActive(false);
+       Cantina.SetActive(false);
+       Mezz.SetActive(false);
+       Cube.SetActive(true);
+       fader.SetBool("FadeOut", false);
+   }
+
+ IEnumerator MezzWait()
+   {
+       fader.SetBool("FadeOut", true);
+       Debug.Log("BLACKOUT");
+       yield return new WaitForSeconds(2);
+       Debug.Log("waited two seconds");
+       Living.SetActive(false);
+       Cantina.SetActive(false);
+       Mezz.SetActive(true);
+       Cube.SetActive(false);
+       fader.SetBool("FadeOut", false);
+   }
+
+    IEnumerator LivingWait()
+   {
+       fader.SetBool("FadeOut", true);
+       Debug.Log("BLACKOUT");
+       yield return new WaitForSeconds(2);
+       Debug.Log("waited two seconds");
+       Living.SetActive(true);
+       Cantina.SetActive(false);
+       Mezz.SetActive(false);
+       Cube.SetActive(false);
+       fader.SetBool("FadeOut", false);
+   }
+
+    IEnumerator CantWait()
+   {
+       fader.SetBool("FadeOut", true);
+       Debug.Log("BLACKOUT");
+       yield return new WaitForSeconds(2);
+       Debug.Log("waited two seconds");
+       Living.SetActive(false);
+       Cantina.SetActive(true);
+       Mezz.SetActive(false);
+       Cube.SetActive(false);
+       fader.SetBool("FadeOut", false);
+   }
 }

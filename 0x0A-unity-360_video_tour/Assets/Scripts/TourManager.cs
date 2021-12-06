@@ -5,12 +5,10 @@ using UnityEngine.Video;
 
 public class TourManager : MonoBehaviour
 {
-    public GameObject[] locations;
-
     public VideoPlayer videoPlayer;
 
-    public GameObject Fader;
-    public GameObject FadeCanvas;
+    public Animator fade;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,33 +18,25 @@ public class TourManager : MonoBehaviour
 
     public void ChangeLocation(VideoClip videoclip)
     {
-        videoPlayer.clip = videoclip;
+        StartCoroutine(Wait(videoclip));
+        
 
     }
 
+    IEnumerator Wait(VideoClip videoclip)
+    {
+        yield return new WaitForSeconds(1);
+        videoPlayer.clip = videoclip;
+        Debug.Log("waiting in video manager");
+        
+    }
     public void TourExit()
     {
-        Debug.Log("Tour Exit");
+
         Application.Quit();
     }
 
-    IEnumerator PlayVideoClip(string videoname)
-    {
-        yield return new WaitForSeconds(2.0f);
-        foreach (GameObject room in locations)
-        {
-            if (room.name == videoname)
-            {
-                room.SetActive(true);
-            }
-            else
-            {
-                room.SetActive(false);
-            }
-        }
 
- 
-    }
 }
 
 
