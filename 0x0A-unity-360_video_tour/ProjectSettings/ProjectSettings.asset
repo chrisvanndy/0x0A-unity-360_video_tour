@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Vanndy VR
   productName: 0x0A-unity-360_video_tour
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -135,8 +135,6 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 11400000, guid: 5c78818a0222141018497434d89aeead, type: 2}
   - {fileID: -5191002371073414759, guid: 2d7618c1c405646dcba2d3c0f8b83623, type: 2}
-  - {fileID: 0}
-  - {fileID: 5802759995982035519, guid: 12bfab54298bd45e59e4836a9afe0c64, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
